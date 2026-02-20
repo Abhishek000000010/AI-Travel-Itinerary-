@@ -1,0 +1,260 @@
+{
+  "attractions": [
+    {
+      "name": "Baga Beach",
+      "state": "Goa",
+      "category": ["Coastal", "Adventure"],
+      "average_cost": 500,
+      "duration_hours": 3,
+      "short_description": "Famous beach known for water sports and vibrant nightlife."
+    },
+    {
+      "name": "Basilica of Bom Jesus",
+      "state": "Goa",
+      "category": ["Heritage", "Spiritual"],
+      "average_cost": 100,
+      "duration_hours": 2,
+      "short_description": "UNESCO World Heritage site containing the remains of St. Francis Xavier."
+    },
+    {
+      "name": "Dudhsagar Falls",
+      "state": "Goa",
+      "category": ["Nature", "Adventure"],
+      "average_cost": 1500,
+      "duration_hours": 6,
+      "short_description": "Majestic four-tiered waterfall located on the Mandovi River."
+    },
+    {
+      "name": "Fort Aguada",
+      "state": "Goa",
+      "category": ["Heritage", "Coastal"],
+      "average_cost": 200,
+      "duration_hours": 2,
+      "short_description": "17th-century Portuguese fort overlooking the Arabian Sea."
+    },
+    {
+      "name": "Anjuna Flea Market",
+      "state": "Goa",
+      "category": ["Coastal"],
+      "average_cost": 300,
+      "duration_hours": 3,
+      "short_description": "Weekly market offering everything from clothes to handmade jewelry."
+    },
+    {
+      "name": "Palolem Beach",
+      "state": "Goa",
+      "category": ["Coastal", "Nature"],
+      "average_cost": 400,
+      "duration_hours": 4,
+      "short_description": "Crescent-shaped beach known for its calm waters and scenic beauty."
+    },
+    {
+      "name": "Mangueshi Temple",
+      "state": "Goa",
+      "category": ["Spiritual", "Heritage"],
+      "average_cost": 100,
+      "duration_hours": 1.5,
+      "short_description": "Beautiful Hindu temple dedicated to Lord Manguesh, an incarnation of Shiva."
+    },
+    {
+      "name": "Chapora Fort",
+      "state": "Goa",
+      "category": ["Heritage", "Coastal"],
+      "average_cost": 150,
+      "duration_hours": 2,
+      "short_description": "Famous as the 'Dil Chahta Hai' fort, offering stunning sunset views."
+    },
+    {
+      "name": "Rohtang Pass",
+      "state": "Himachal",
+      "category": ["Nature", "Adventure"],
+      "average_cost": 2500,
+      "duration_hours": 5,
+      "short_description": "High mountain pass on the eastern Pir Panjal Range of the Himalayas."
+    },
+    {
+      "name": "Hadimba Devi Temple",
+      "state": "Himachal",
+      "category": ["Spiritual", "Heritage"],
+      "average_cost": 50,
+      "duration_hours": 1.5,
+      "short_description": "Ancient wooden temple surrounded by cedar forests in Manali."
+    },
+    {
+      "name": "Solang Valley",
+      "state": "Himachal",
+      "category": ["Adventure", "Nature"],
+      "average_cost": 1000,
+      "duration_hours": 4,
+      "short_description": "Known for its summer and winter adventure sports like paragliding and skiing."
+    },
+    {
+      "name": "Mall Road, Shimla",
+      "state": "Himachal",
+      "category": ["Heritage", "Nature"],
+      "average_cost": 300,
+      "duration_hours": 3,
+      "short_description": "The main street and social hub of the hill station Shimla."
+    },
+    {
+      "name": "Kasol",
+      "state": "Himachal",
+      "category": ["Nature", "Adventure"],
+      "average_cost": 600,
+      "duration_hours": 8,
+      "short_description": "Small village on the banks of Parvati River, popular for trekking."
+    },
+    {
+      "name": "Spiti Valley",
+      "state": "Himachal",
+      "category": ["Nature", "Spiritual"],
+      "average_cost": 3000,
+      "duration_hours": 12,
+      "short_description": "Cold desert mountain valley with ancient monasteries."
+    },
+    {
+      "name": "Dharamshala & McLeod Ganj",
+      "state": "Himachal",
+      "category": ["Spiritual", "Heritage"],
+      "average_cost": 500,
+      "duration_hours": 6,
+      "short_description": "Residence of the Dalai Lama and center of Tibetan culture."
+    },
+    {
+      "name": "Great Himalayan National Park",
+      "state": "Himachal",
+      "category": ["Nature", "Adventure"],
+      "average_cost": 800,
+      "duration_hours": 8,
+      "short_description": "UNESCO site known for its diverse flora and fauna and trekking trails."
+    },
+    {
+      "name": "Amer Fort",
+      "state": "Rajasthan",
+      "category": ["Heritage", "Spiritual"],
+      "average_cost": 600,
+      "duration_hours": 4,
+      "short_description": "Majestic fort located on a hill, famous for its artistic style elements."
+    },
+    {
+      "name": "City Palace, Udaipur",
+      "state": "Rajasthan",
+      "category": ["Heritage"],
+      "average_cost": 500,
+      "duration_hours": 3,
+      "short_description": "Magnificent palace complex situated on the east bank of Lake Pichola."
+    },
+    {
+      "name": "Jaisalmer Fort",
+      "state": "Rajasthan",
+      "category": ["Heritage", "Coastal"],
+      "average_cost": 400,
+      "duration_hours": 4,
+      "short_description": "One of the very few 'living forts' in the world, built in the Thar Desert."
+    },
+    {
+      "name": "Hawa Mahal",
+      "state": "Rajasthan",
+      "category": ["Heritage"],
+      "average_cost": 200,
+      "duration_hours": 1.5,
+      "short_description": "The 'Palace of Breeze' known for its unique honeycomb-shaped windows."
+    },
+    {
+      "name": "Pushkar Lake",
+      "state": "Rajasthan",
+      "category": ["Spiritual", "Nature"],
+      "average_cost": 50,
+      "duration_hours": 2,
+      "short_description": "Sacred lake and major pilgrimage site for Hindus."
+    },
+    {
+      "name": "Mehrangarh Fort",
+      "state": "Rajasthan",
+      "category": ["Heritage"],
+      "average_cost": 700,
+      "duration_hours": 3,
+      "short_description": "Massive fort rising 400 feet above the city of Jodhpur."
+    },
+    {
+      "name": "Ranthambore National Park",
+      "state": "Rajasthan",
+      "category": ["Nature", "Adventure"],
+      "average_cost": 2000,
+      "duration_hours": 4,
+      "short_description": "One of the largest national parks in Northern India, famous for tigers."
+    },
+    {
+      "name": "Chittorgarh Fort",
+      "state": "Rajasthan",
+      "category": ["Heritage"],
+      "average_cost": 300,
+      "duration_hours": 5,
+      "short_description": "The largest fort in India and a symbol of Rajput bravery."
+    },
+    {
+      "name": "Alleppey Backwaters",
+      "state": "Kerala",
+      "category": ["Nature", "Coastal"],
+      "average_cost": 5000,
+      "duration_hours": 8,
+      "short_description": "Stunning network of lagoons and canals, best experienced on a houseboat."
+    },
+    {
+      "name": "Munnar Tea Gardens",
+      "state": "Kerala",
+      "category": ["Nature"],
+      "average_cost": 200,
+      "duration_hours": 4,
+      "short_description": "Expansive tea plantations offering breathtaking views and trekking."
+    },
+    {
+      "name": "Wayanad Wildlife Sanctuary",
+      "state": "Kerala",
+      "category": ["Nature", "Adventure"],
+      "average_cost": 800,
+      "duration_hours": 5,
+      "short_description": "Biodiversity hotspot with elephants, tigers, and diverse avian life."
+    },
+    {
+      "name": "Fort Kochi",
+      "state": "Kerala",
+      "category": ["Heritage", "Coastal"],
+      "average_cost": 100,
+      "duration_hours": 3,
+      "short_description": "Historical area known for its colonial charm and Chinese fishing nets."
+    },
+    {
+      "name": "Varkala Beach",
+      "state": "Kerala",
+      "category": ["Coastal", "Spiritual"],
+      "average_cost": 300,
+      "duration_hours": 4,
+      "short_description": "Unique beach with cliffs adjacent to the Arabian Sea."
+    },
+    {
+      "name": "Athirappilly Falls",
+      "state": "Kerala",
+      "category": ["Nature"],
+      "average_cost": 200,
+      "duration_hours": 3,
+      "short_description": "Nicknamed 'The Niagara of India', a massive and beautiful waterfall."
+    },
+    {
+      "name": "Thekkady (Periyar)",
+      "state": "Kerala",
+      "category": ["Nature", "Adventure"],
+      "average_cost": 1000,
+      "duration_hours": 4,
+      "short_description": "Famous for the Periyar National Park and boat safaris on the lake."
+    },
+    {
+      "name": "Padmanabhaswamy Temple",
+      "state": "Kerala",
+      "category": ["Spiritual", "Heritage"],
+      "average_cost": 50,
+      "duration_hours": 2,
+      "short_description": "One of the richest temples in the world, dedicated to Lord Vishnu."
+    }
+  ]
+}
