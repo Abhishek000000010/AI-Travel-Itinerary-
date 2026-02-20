@@ -50,7 +50,58 @@ body {
   background: #94A3B8;
 }
 
-.timeline-dot::before {
-  content: '';
-  @apply absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full bg-[#E2E8F0] -z-10;
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Force content to use full width by overriding sidebar offset */
+  .ml-64 {
+    margin-left: 0 !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .print-header {
+    display: block !important;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #0F172A;
+    padding-bottom: 1rem;
+  }
+
+  .print-content {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-card {
+    break-inside: avoid;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: none !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .print-break-page {
+    break-before: page !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+.print-header {
+  display: none;
 }

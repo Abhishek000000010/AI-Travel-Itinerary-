@@ -18,14 +18,17 @@ import {
     ArrowRight,
     Search,
     Star,
+    Heart,
     Map as MapIcon,
     Loader2,
     IndianRupee,
     Navigation,
-    LocateFixed
+    LocateFixed,
+    Users
 } from 'lucide-react';
 import axios from 'axios';
 import MapModal from '../components/MapModal';
+import { saveTrip, isFavoritePlace, toggleFavoritePlace } from '../utils/storage';
 
 const FormPage = () => {
     const navigate = useNavigate();
@@ -38,7 +41,10 @@ const FormPage = () => {
         destination: '',
         budget: 42500,
         days: 3,
-        interests: []
+        interests: [],
+        adults: 2,
+        children: 0,
+        travelStyle: 'Comfort'
     });
 
     // Auto-update destination
@@ -104,6 +110,7 @@ const FormPage = () => {
             console.log("Making API call to backend...");
             const response = await axios.post('http://localhost:5002/api/generate-itinerary', formData);
             console.log("API Success:", response.data);
+            saveTrip({ plan: response.data, preferences: formData });
             navigate('/dashboard', { state: { plan: response.data, preferences: formData } });
         } catch (error) {
             console.error("AI Generation Error:", error);
@@ -120,6 +127,8 @@ const FormPage = () => {
                 <MapModal
                     placeName={mapModal.placeName}
                     city={mapModal.city}
+                    places={mapModal.places}
+                    mode={mapModal.mode}
                     onClose={() => setMapModal(null)}
                 />
             )}
@@ -159,10 +168,24 @@ const FormPage = () => {
                             animate={{ opacity: 1, height: 'auto' }}
                             className="mt-8 pt-8 border-t border-[#F1F5F9]"
                         >
-                            <h3 className="text-sm font-black text-[#1E293B] uppercase tracking-widest mb-6">Top Attractions in {searchQuery}</h3>
+                            <div className="flex items-center justify-between gap-4 mb-6 flex-wrap">
+                                <h3 className="text-sm font-black text-[#1E293B] uppercase tracking-widest">Top Attractions in {searchQuery}</h3>
+                                <button
+                                    onClick={() => setMapModal({
+                                        placeName: `${searchQuery} Attractions`,
+                                        city: searchQuery,
+                                        places: searchResults,
+                                        mode: 'multi',
+                                    })}
+                                    className="bg-[#0F172A] hover:bg-black text-white px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest inline-flex items-center gap-2"
+                                >
+                                    <MapIcon size={13} />
+                                    View Map
+                                </button>
+                            </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 {searchResults.map((place, i) => (
-                                    <PlaceCard key={i} place={place} city={searchQuery} onViewMap={(p, c) => setMapModal({ placeName: p, city: c })} />
+                                    <PlaceCard key={i} place={place} city={searchQuery} onViewMap={(p, c) => setMapModal({ placeName: p, city: c, mode: 'route' })} />
                                 ))}
                             </div>
                         </motion.div>
@@ -219,6 +242,80 @@ const FormPage = () => {
                                             {getBudgetLabel(formData.budget)}
                                         </span>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Travelers and Style Row */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {/* Travelers */}
+                            <div className="space-y-3">
+                                <label className="text-sm font-bold text-[#1E293B] uppercase tracking-wider flex items-center gap-2">
+                                    <Users size={16} className="text-blue-500" />
+                                    Travelers (Adults & Kids)
+                                </label>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="flex items-center bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] p-1 h-[60px]">
+                                        <button
+                                            type="button"
+                                            onClick={() => setFormData({ ...formData, adults: Math.max(1, formData.adults - 1) })}
+                                            className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white hover:shadow-sm"
+                                        >
+                                            <Minus size={16} />
+                                        </button>
+                                        <div className="flex-1 text-center font-bold text-sm text-[#1E293B]">
+                                            {formData.adults} Adults
+                                        </div>
+                                        <button
+                                            type="button"
+                                            onClick={() => setFormData({ ...formData, adults: formData.adults + 1 })}
+                                            className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white hover:shadow-sm"
+                                        >
+                                            <Plus size={16} />
+                                        </button>
+                                    </div>
+                                    <div className="flex items-center bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] p-1 h-[60px]">
+                                        <button
+                                            type="button"
+                                            onClick={() => setFormData({ ...formData, children: Math.max(0, formData.children - 1) })}
+                                            className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white hover:shadow-sm"
+                                        >
+                                            <Minus size={16} />
+                                        </button>
+                                        <div className="flex-1 text-center font-bold text-sm text-[#1E293B]">
+                                            {formData.children} Kids
+                                        </div>
+                                        <button
+                                            type="button"
+                                            onClick={() => setFormData({ ...formData, children: formData.children + 1 })}
+                                            className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white hover:shadow-sm"
+                                        >
+                                            <Plus size={16} />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Travel Style */}
+                            <div className="space-y-3">
+                                <label className="text-sm font-bold text-[#1E293B] uppercase tracking-wider flex items-center gap-2">
+                                    <Zap size={16} className="text-orange-500" />
+                                    Travel Style
+                                </label>
+                                <div className="flex bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] p-1 h-[60px]">
+                                    {['Backpacker', 'Comfort', 'Luxury'].map((style) => (
+                                        <button
+                                            key={style}
+                                            type="button"
+                                            onClick={() => setFormData({ ...formData, travelStyle: style })}
+                                            className={`flex-1 rounded-xl text-[11px] font-black uppercase tracking-wider transition-all duration-200 ${formData.travelStyle === style
+                                                ? 'bg-white shadow-md text-blue-600'
+                                                : 'text-[#94A3B8] hover:text-[#64748B]'
+                                                }`}
+                                        >
+                                            {style}
+                                        </button>
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -302,6 +399,7 @@ const FormPage = () => {
 
 const PlaceCard = ({ place, city, onViewMap }) => {
     const [imgError, setImgError] = useState(false);
+    const [favorite, setFavorite] = useState(() => isFavoritePlace({ ...place, city }));
     const seed = String(place.name || city || 'place').replace(/[^a-zA-Z0-9]/g, '').toLowerCase().slice(0, 20);
     const fallback = `https://picsum.photos/seed/${seed || 'travel'}/800/500`;
 
@@ -324,7 +422,26 @@ const PlaceCard = ({ place, city, onViewMap }) => {
 
             {/* Info */}
             <div className="p-4 flex flex-col flex-1 gap-2">
-                <h4 className="font-black text-[#0F172A] text-sm leading-tight">{place.name}</h4>
+                <div className="flex items-start justify-between gap-2">
+                    <h4 className="font-black text-[#0F172A] text-sm leading-tight">{place.name}</h4>
+                    <button
+                        onClick={() => {
+                            const next = toggleFavoritePlace({
+                                name: place.name,
+                                city,
+                                image: place.image,
+                                type: place.category,
+                                rating: place.rating,
+                                description: place.description,
+                            });
+                            setFavorite(next);
+                        }}
+                        className={`shrink-0 w-7 h-7 rounded-lg flex items-center justify-center transition-colors ${favorite ? 'bg-rose-100 text-rose-500' : 'bg-gray-100 text-gray-400 hover:text-rose-500'}`}
+                        title={favorite ? 'Remove from favorites' : 'Add to favorites'}
+                    >
+                        <Heart size={13} fill={favorite ? 'currentColor' : 'none'} />
+                    </button>
+                </div>
                 <div className="flex items-center gap-1 text-orange-500">
                     <Star size={11} fill="currentColor" />
                     <span className="text-[11px] font-black text-orange-500">{place.rating || '4.5'}</span>

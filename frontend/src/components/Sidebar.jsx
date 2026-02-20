@@ -15,7 +15,7 @@ const Sidebar = () => {
     const navigate = useNavigate();
 
     return (
-        <aside className="w-64 bg-white border-r border-[#E2E8F0] h-screen fixed left-0 top-0 flex flex-col z-50">
+        <aside className="w-64 bg-white border-r border-[#E2E8F0] h-screen fixed left-0 top-0 flex flex-col z-50 no-print">
             <div className="p-6">
                 <div
                     className="flex items-center gap-3 mb-10 cursor-pointer"
